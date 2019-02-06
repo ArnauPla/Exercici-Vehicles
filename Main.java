@@ -46,7 +46,7 @@ public class Main {
 		
 	}
 	
-	public static Car enterCar() {
+	public static Car enterCar() throws Exception {
 		
 		Scanner entrada = new Scanner(System.in);
 
