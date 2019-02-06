@@ -15,13 +15,13 @@ public class Car extends Vehicle {
 
 	public void addTwoWheels(List<Wheel> wheels) throws Exception {
 		if (wheels.size() != 2)
-			throw new Exception();
+			throw new Exception("Han de ser dues rodes");
 
 		Wheel rightWheel = wheels.get(0);
 		Wheel leftWheel = wheels.get(1);
 
 		if (!rightWheel.equals(leftWheel))
-			throw new Exception();
+			throw new Exception("La primera i la segona roda han de ser iguals");
 
 		this.wheels.add(leftWheel);
 		this.wheels.add(rightWheel);

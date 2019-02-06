@@ -8,6 +8,46 @@ public class Main {
 
 	public static void main(String[] args) throws Exception {
 
+		Car cotxe = enterCar();		
+		
+		List<Wheel> rodesDavanteres = enterWheelAxis("davantera");	
+		List<Wheel> rodesTraseres = enterWheelAxis("trasera");	
+		
+		cotxe.addWheels(rodesDavanteres, rodesTraseres);
+		
+	}
+	
+	public static List<Wheel> enterWheelAxis(String eix) {
+		
+		Wheel primeraRoda = enterWheel("primera", eix);
+		
+		Wheel segonaRoda = enterWheel("segona", eix);
+		
+		List<Wheel> rodes = new ArrayList<Wheel>();
+		rodes.add(primeraRoda);
+		rodes.add(segonaRoda);
+		
+		return rodes;
+	}
+	
+	public static Wheel enterWheel(String ordre, String eix) {
+		
+		Scanner entrada = new Scanner(System.in);
+		
+		System.out.println("Quina és la marca de la " + ordre + " roda " + eix + "?");
+		String marcaRoda = entrada.nextLine();
+		
+		System.out.println("Quin és el diàmetre de la " + ordre + " roda " + eix + "?");
+		double diametreRoda = Double.parseDouble(entrada.nextLine());
+
+		Wheel roda = new Wheel(marcaRoda, diametreRoda);
+		
+		return roda;
+		
+	}
+	
+	public static Car enterCar() {
+		
 		Scanner entrada = new Scanner(System.in);
 
 		System.out.println("Matricula? (Ha de ser de la forma: 0000AA o 0000AAA)");
@@ -21,33 +61,7 @@ public class Main {
 		
 		Car cotxe = new Car(matricula, marca, color);
 		
-		
-		System.out.println("Marca rodes traseres?");
-		String marcaTrasera = entrada.nextLine();
-		
-		System.out.println("Diametre rodes traseres?");
-		double diametreTrasera = Double.parseDouble(entrada.nextLine());
-
-		Wheel trasera = new Wheel(marcaTrasera, diametreTrasera);
-		
-		List<Wheel> rodesTraseres = new ArrayList<Wheel>();
-		rodesTraseres.add(trasera);
-		rodesTraseres.add(trasera);
-		
-		
-		System.out.println("Marca rodes davanteres?");
-		String marcaDavantera = entrada.nextLine();
-		
-		System.out.println("Diametre rodes davanteres?");
-		double diametreDavantera = Double.parseDouble(entrada.nextLine());
-
-		Wheel davantera = new Wheel(marcaDavantera, diametreDavantera);
-		
-		List<Wheel> rodesDavanteres = new ArrayList<Wheel>();
-		rodesDavanteres.add(davantera);
-		rodesDavanteres.add(davantera);
-		
-		cotxe.addWheels(rodesTraseres, rodesDavanteres);
+		return cotxe;
 	}
 
 }

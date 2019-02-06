@@ -8,4 +8,11 @@ public class Wheel {
 		this.brand = brand;
 		this.diameter = diameter;
 	}
+	
+	public boolean equals(Wheel wheel) {
+		if(this.brand.equals(wheel.brand) && this.diameter == diameter) {
+			return true;
+		} else
+			return false;
+	}
 }
