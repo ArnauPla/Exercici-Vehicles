@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Car extends Vehicle {
 
-	public Car(String plate, String brand, String color) {
+	public Car(String plate, String brand, String color) throws Exception {
 		super(plate, brand, color);
 	}
 
@@ -21,7 +21,7 @@ public class Car extends Vehicle {
 		Wheel leftWheel = wheels.get(1);
 
 		if (!rightWheel.equals(leftWheel))
-			throw new Exception("La primera i la segona roda han de ser iguals");
+			throw new Exception("Les rodes d'un mateix eix han de ser iguals");
 
 		this.wheels.add(leftWheel);
 		this.wheels.add(rightWheel);
