@@ -1,6 +1,7 @@
 package com.vehicles.project;
 
 import java.util.List;
+import java.util.Scanner;
 
 public class Car extends Vehicle {
 
@@ -8,12 +9,7 @@ public class Car extends Vehicle {
 		super(plate, brand, color);
 	}
 
-	public void addWheels(List<Wheel> frontWheels, List<Wheel> backWheels) throws Exception {
-		addTwoWheels(frontWheels);
-		addTwoWheels(backWheels);
-	}
-
-	public void addTwoWheels(List<Wheel> wheels) throws Exception {
+	public void addWheelsAxis(List<Wheel> wheels) throws Exception {
 		if (wheels.size() != 2)
 			throw new Exception("Han de ser dues rodes");
 
@@ -23,8 +19,10 @@ public class Car extends Vehicle {
 		if (!rightWheel.equals(leftWheel))
 			throw new Exception("Les rodes d'un mateix eix han de ser iguals");
 
+		checkWheel(rightWheel);
+		checkWheel(leftWheel);
+		
 		this.wheels.add(leftWheel);
 		this.wheels.add(rightWheel);
 	}
-
 }
